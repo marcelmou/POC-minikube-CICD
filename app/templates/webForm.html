@@ -1,0 +1,14 @@
+<title>Calculate </title>
+
+{% block content %}
+<form action="" method="post">
+<div class="input number">
+                {{ form.number1.label }}
+                {{ form.number1 }}</div>
+    <div class="input number">
+                {{ form.number2.label }}
+                {{ form.number2 }}</div>
+<div class="input submit">
+                {{ form.submit() }}
+</form>
+{% endblock %}
