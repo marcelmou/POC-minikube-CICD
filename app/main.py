@@ -2,10 +2,8 @@ from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, FloatField
 from wtforms.validators import DataRequired
-import importlib
-import calculate
 
-importlib.import_module(calculate)
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5465142684121x6dwdcqws168'
@@ -31,19 +29,22 @@ def calculate(var1,var2):
 def index():
     #Formular aufbauen mit der Klasse calcForm
     form = calcForm(request.form)
+    message=0
 
     #Handlungsstrang wenn ein HTTP-POST ausgeführt wird
     if request.method == 'POST':
         value = calculate(form.number1.data,form.number2.data)
         print(value)
+        message = value
 
     #Handlungsstrang wenn ein HTTP-GET ausgeführt wird
     if request.method == 'GET' and request.args.get('number1') is not None:
         value = calculate(float(request.args.get('number1')),float(request.args.get('number2')))
         print(value)
+        message=value
 
     #Return: die HTML Datei, die auf Basis des Templates webForm.html geparst wird
-    return render_template('webForm.html', title='Calculate', form=form)
+    return render_template('webForm.html', title='Calculate', form=form, message=message)
 
 #Main-Funktion
 if __name__ == "__main__":
