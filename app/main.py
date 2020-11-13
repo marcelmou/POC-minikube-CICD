@@ -2,7 +2,10 @@ from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, FloatField
 from wtforms.validators import DataRequired
+import importlib
+import calculate
 
+importlib.import_module(calculate)
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5465142684121x6dwdcqws168'
