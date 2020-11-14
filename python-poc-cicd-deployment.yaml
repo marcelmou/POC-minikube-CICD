@@ -1,0 +1,19 @@
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: poc-cicd-deployment
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: poc-cicd-deployment
+      template:
+        metadata:
+          labels:
+            app: poc-cicd-deployment
+        spec:
+          containers:
+          - name: poc-cicd-deployment
+            image: moukkelchen/python-poc-cicd:latest
+            ports:
+            - containerPort: 5000
