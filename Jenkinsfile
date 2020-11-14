@@ -44,7 +44,7 @@ pipeline {
 
         stage('kill container') {
           steps {
-            sh 'docker container rm python-poc-cicd'
+            sh 'docker kill python-poc-cicd && docker container rm python-poc-cicd'
           }
         }
 
