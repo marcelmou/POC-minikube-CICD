@@ -30,24 +30,20 @@ pipeline {
           }
         }
 
-        stage('start container (new image)') {
+        stage('start and test new image') {
           steps {
             sh 'docker run -d -p 8081:5000 --name python-poc-cicd python-poc-cicd:latest'
-          }
-        }
-
-        stage('test http connection') {
-          steps {
             sh 'curl http://localhost:8081'
-          }
-        }
-
-        stage('kill container') {
-          steps {
             sh 'docker kill python-poc-cicd && docker container rm python-poc-cicd'
           }
         }
 
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'start deploy process'
       }
     }
 
