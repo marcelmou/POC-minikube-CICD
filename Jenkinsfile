@@ -14,7 +14,8 @@ pipeline {
           agent any
           steps {
             echo 'create docker image'
-            sh 'docker build --tag  python-poc-cicd:latest ./apps/Dockerfile'
+            sh 'cd apps'
+            sh 'docker build --tag python-poc-cicd:latest .'
           }
         }
 
