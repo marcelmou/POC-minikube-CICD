@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '5465142684121x6dwdcqws168'
 
 
-#Die Klasse calcForm verwendet die flask_wtf-Bibliothek um das Webformular zu generieren
+#Die Klasse calcForm verwendet die flask_wtf-Bibliothek um das Webformular zu generierens
 class calcForm(FlaskForm):
     number1 = FloatField('Zahl 1', validators=[DataRequired()])
     number2 = FloatField('Zahl 2', validators=[DataRequired()])
