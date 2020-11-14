@@ -46,6 +46,17 @@ def index():
     #Return: die HTML Datei, die auf Basis des Templates webForm.html geparst wird
     return render_template('webForm.html', title='Calculate', form=form, message=message)
 
+@app.route('/test', methods=['GET'])
+def test():
+    value=0
+    if request.method == 'GET' and request.args.get('number1') is not None:
+        value = calculate(float(request.args.get('number1')),float(request.args.get('number2')))
+
+    if(value==7):
+        return "OK"
+    else:
+        return "FALSE"
+
 #Main-Funktion
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
