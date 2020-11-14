@@ -34,7 +34,7 @@ pipeline {
             sh 'docker run -d -p 8081:5000 --name python-poc-cicd moukkelchen/python-poc-cicd:test'
             echo 'waiting 10sec for coming up'
             sleep 10
-            sh 'docker kill python-poc-cicd && docker container rm python-poc-cicd'
+            sh 'docker kill python-poc-cicd && docker container rm python-poc-cicd'
           }
         }
 
