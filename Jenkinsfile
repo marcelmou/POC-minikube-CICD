@@ -35,7 +35,6 @@ pipeline {
             sh 'docker run -d -p 8081:5000 --name python-poc-cicd python-poc-cicd:latest'
             echo 'waiting 10sec for coming up'
             sleep 10
-            sh 'curl http://localhost:8081'
             sh 'docker kill python-poc-cicd && docker container rm python-poc-cicd'
           }
         }
