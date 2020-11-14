@@ -22,5 +22,23 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Starting test for new build'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'docker run -d -p 8081:5000 --name python-poc-cicd python-poc-cicd:latest'
+            sh 'docker kill python-poc-cicd'
+          }
+        }
+
+      }
+    }
+
   }
 }
