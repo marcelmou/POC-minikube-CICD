@@ -11,14 +11,10 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-          agent {
-            dockerfile {
-              filename 'apps/Dockerfile'
-            }
-
-          }
+          agent any
           steps {
             echo 'create docker image'
+            sh 'ls'
           }
         }
 
