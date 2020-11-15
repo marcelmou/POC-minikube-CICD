@@ -39,7 +39,7 @@ pipeline {
                 if(response.content == 'FALSE') {
                     error 'first test not successful, check logs'
                 }
-                response = httpRequest 'http://127.0.0.1:53439/test?number1=2&number2=5'
+                response = httpRequest 'http://127.0.0.1:53439/test?number1=12&number2=-5'
                 if(response.content == 'FALSE') {
                     error 'second test not successful, check logs'
                 }
