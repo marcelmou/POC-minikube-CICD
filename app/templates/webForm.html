@@ -1,15 +1,31 @@
-<title>Calculate </title>
-
-{% block content %}
-{{ message }}
-<form action="" method="post">
-<div class="input number">
-                {{ form.number1.label }}
-                {{ form.number1 }}</div>
-    <div class="input number">
-                {{ form.number2.label }}
-                {{ form.number2 }}</div>
-<div class="input submit">
-                {{ form.submit() }}
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculate Things</title>
+        <style>
+            .container {
+                  margin: auto;
+                  width: 50%;
+                  padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {% block content %}
+            <p>Diese Applikation berechnet die Summe der Zahlen 1 und 2. Bitte gib unten zwei Ziffern ein.</p>
+            <p>Aktuelles Ergebnis: {{ message }}</p>
+            <form action="" method="post">
+            <div class="input number">
+                            {{ form.number1.label }}
+                            {{ form.number1 }}</div>
+                <div class="input number">
+                            {{ form.number2.label }}
+                            {{ form.number2 }}</div>
+            <div class="input submit">
+                            {{ form.submit() }}
+            </form>
+        </div>
+    {% endblock %}
+    </body>
+</html>
