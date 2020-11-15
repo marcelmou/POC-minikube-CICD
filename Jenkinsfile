@@ -29,7 +29,7 @@ pipeline {
           }
         }
 
-        stage('start and test new image') {
+        stage('start / test / kill new image') {
           steps {
             sh 'docker run -d -p 8081:5000 --name python-poc-cicd moukkelchen/python-poc-cicd:test'
             echo 'waiting 10sec for coming up'
